@@ -13,5 +13,12 @@
     <artifactId>edu-user</artifactId>
     <version>1.0.0</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>edu</groupId>
+            <artifactId>edu-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>

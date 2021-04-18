@@ -1,5 +1,6 @@
 package com.edu;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +23,7 @@ import java.util.Properties;
 @EnableCaching
 @ServletComponentScan
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)//排除自动配置
+@MapperScan("com.edu.dao.mapper")
 public class Application {
 
     private static final Logger logger = LoggerFactory.getLogger(Application.class);

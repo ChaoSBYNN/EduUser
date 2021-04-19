@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Version 1.0
  **/
 @RestController
-@RequestMapping("${server.baseurl}")
+@RequestMapping("${server.baseurl}/checkIn")
 public class CheckInController extends BaseController {
 
     private static final Logger logger = LoggerFactory.getLogger(CheckInController.class);
@@ -28,14 +28,9 @@ public class CheckInController extends BaseController {
     @Autowired
     private UserLoginService userLoginService;
 
-    /**
-     * 用户端登录
-     * @param request
-     * @param data
-     */
-    @PostMapping("/login")
-//    public DeferredResult<String> login(HttpServletRequest request, @RequestBody String data) {
-    public String login(HttpServletRequest request, @RequestBody String data) {
+
+    @PostMapping("/check")
+    public String check(HttpServletRequest request, @RequestBody String data) {
 
         UserEntity userEntity = new UserEntity();
         userEntity.setPassword("123");
@@ -46,11 +41,5 @@ public class CheckInController extends BaseController {
         return result.toString();
     }
 
-    @PostMapping("/register")
-    public String register(HttpServletRequest request, @RequestBody String data) {
-
-
-        return "SUCCESS";
-    }
 
 }

@@ -46,7 +46,7 @@ public class UserController extends BaseController {
         UserEntity result = userLoginService.login(userEntity);
 
         logger.info("user login info : {}", result);
-        return result.toString();
+        return createJsonResult(result);
     }
 
     @PostMapping("/register")

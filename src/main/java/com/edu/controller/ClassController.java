@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Version 1.0
  **/
 @RestController
-@RequestMapping("${server.baseurl}")
+@RequestMapping("${server.baseurl}/class")
 public class ClassController extends BaseController {
 
     private static final Logger logger = LoggerFactory.getLogger(ClassController.class);
@@ -28,14 +28,8 @@ public class ClassController extends BaseController {
     @Autowired
     private UserLoginService userLoginService;
 
-    /**
-     * 用户端登录
-     * @param request
-     * @param data
-     */
-//    @PostMapping("/login")
-//    public DeferredResult<String> login(HttpServletRequest request, @RequestBody String data) {
-    public String login(HttpServletRequest request, @RequestBody String data) {
+    @PostMapping("/class")
+    public String getClass(HttpServletRequest request, @RequestBody String data) {
 
         UserEntity userEntity = new UserEntity();
         userEntity.setPassword("123");

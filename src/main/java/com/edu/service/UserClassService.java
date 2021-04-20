@@ -25,11 +25,12 @@ public class UserClassService {
     @Autowired
     private ClassService classService;
 
-    public List<SchoolClassEntity> myClassList(String uid, String sid, String aid) {
+    public List<SchoolClassEntity> getMyClassList(String uid, String sid, String aid) {
 
         // from uid sid aid get class list
-
-        return null;
+        SchoolClassEntity query = new SchoolClassEntity();
+        query.setSid(sid);
+        return classService.getClassList(query);
     }
 
 

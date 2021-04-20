@@ -25,20 +25,12 @@ public class CheckInController extends BaseController {
 
     private static final Logger logger = LoggerFactory.getLogger(CheckInController.class);
 
-    @Autowired
-    private UserLoginService userLoginService;
-
-
     @PostMapping("/check")
     public String check(HttpServletRequest request, @RequestBody String data) {
 
-        UserEntity userEntity = new UserEntity();
-        userEntity.setPassword("123");
-        userEntity.setUsername("user1");
-        UserEntity result = userLoginService.login(userEntity);
 
-        logger.info("user login info : {}", result);
-        return result.toString();
+
+        return "SUCCESS";
     }
 
 

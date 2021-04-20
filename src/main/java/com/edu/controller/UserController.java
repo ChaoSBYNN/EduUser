@@ -37,20 +37,16 @@ public class UserController extends BaseController {
      * @param data
      */
     @PostMapping("/login")
-//    public DeferredResult<String> login(HttpServletRequest request, @RequestBody String data) {
-    public String login(HttpServletRequest request, @RequestBody String data) {
+    public String login(HttpServletRequest request, @RequestBody UserEntity data) {
 
-        UserEntity userEntity = new UserEntity();
-        userEntity.setPassword("123");
-        userEntity.setUsername("user1");
-        UserEntity result = userLoginService.login(userEntity);
+        UserEntity result = userLoginService.login(data);
 
         logger.info("user login info : {}", result);
         return createJsonResult(result);
     }
 
     @PostMapping("/register")
-    public String register(HttpServletRequest request, @RequestBody String data) {
+    public String register(HttpServletRequest request, @RequestBody UserEntity data) {
 
 
         return "SUCCESS";

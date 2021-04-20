@@ -1,6 +1,7 @@
 package com.edu.controller;
 
 import com.edu.dao.entity.UserEntity;
+import com.edu.service.UserClassService;
 import com.edu.service.UserLoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,22 +27,10 @@ public class ClassController extends BaseController {
     private static final Logger logger = LoggerFactory.getLogger(ClassController.class);
 
     @Autowired
-    private UserLoginService userLoginService;
+    private UserClassService userClassService;
 
     @PostMapping("/class")
     public String getClass(HttpServletRequest request, @RequestBody String data) {
-
-        UserEntity userEntity = new UserEntity();
-        userEntity.setPassword("123");
-        userEntity.setUsername("user1");
-        UserEntity result = userLoginService.login(userEntity);
-
-        logger.info("user login info : {}", result);
-        return result.toString();
-    }
-
-//    @PostMapping("/register")
-    public String register(HttpServletRequest request, @RequestBody String data) {
 
 
         return "SUCCESS";

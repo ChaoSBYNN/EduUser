@@ -29,11 +29,14 @@ public class ClassController extends BaseController {
     @Autowired
     private UserClassService userClassService;
 
-    @PostMapping("/class")
+    @PostMapping("/my")
     public String getClass(HttpServletRequest request, @RequestBody String data) {
 
+        String uid = "";
+        String sid = "";
+        String aid = "";
 
-        return "SUCCESS";
+        return createJsonResult(userClassService.getMyClassList(uid, sid, aid));
     }
 
 }

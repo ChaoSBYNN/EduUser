@@ -1,11 +1,11 @@
 package com.edu.controller;
 
-import com.edu.dao.entity.UserEntity;
+import com.alibaba.fastjson.JSONObject;
 import com.edu.service.UserClassService;
-import com.edu.service.UserLoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,9 +32,11 @@ public class ClassController extends BaseController {
     @PostMapping("/all")
     public String getClass(HttpServletRequest request, @RequestBody String data) {
 
-        String uid = "";
-        String sid = "";
-        String aid = "";
+        JSONObject requestDataJson = JSONObject.parseObject(data);
+
+        String uid = StringUtils.isEmpty(requestDataJson.getString("uid")) ? "" : requestDataJson.getString("uid");
+        String sid = StringUtils.isEmpty(requestDataJson.getString("sid")) ? "" : requestDataJson.getString("sid");
+        String aid = StringUtils.isEmpty(requestDataJson.getString("aid")) ? "" : requestDataJson.getString("aid");
 
         return createJsonResult(userClassService.getClassList(uid, sid, aid));
     }
@@ -42,10 +44,12 @@ public class ClassController extends BaseController {
     @PostMapping("/my/one")
     public String getOneClass(HttpServletRequest request, @RequestBody String data) {
 
-        String uid = "";
-        String sid = "";
-        String aid = "";
-        String cid = "";
+        JSONObject requestDataJson = JSONObject.parseObject(data);
+
+        String uid = StringUtils.isEmpty(requestDataJson.getString("uid")) ? "" : requestDataJson.getString("uid");
+        String sid = StringUtils.isEmpty(requestDataJson.getString("sid")) ? "" : requestDataJson.getString("sid");
+        String aid = StringUtils.isEmpty(requestDataJson.getString("aid")) ? "" : requestDataJson.getString("aid");
+        String cid = StringUtils.isEmpty(requestDataJson.getString("cid")) ? "" : requestDataJson.getString("cid");
 
         return createJsonResult(userClassService.getMyClass(uid, sid, aid, cid));
     }
@@ -53,9 +57,11 @@ public class ClassController extends BaseController {
     @PostMapping("/my/all")
     public String getAllClass(HttpServletRequest request, @RequestBody String data) {
 
-        String uid = "";
-        String sid = "";
-        String aid = "";
+        JSONObject requestDataJson = JSONObject.parseObject(data);
+
+        String uid = StringUtils.isEmpty(requestDataJson.getString("uid")) ? "" : requestDataJson.getString("uid");
+        String sid = StringUtils.isEmpty(requestDataJson.getString("sid")) ? "" : requestDataJson.getString("sid");
+        String aid = StringUtils.isEmpty(requestDataJson.getString("aid")) ? "" : requestDataJson.getString("aid");
 
         return createJsonResult(userClassService.getMyAllClass(uid, sid, aid));
     }
